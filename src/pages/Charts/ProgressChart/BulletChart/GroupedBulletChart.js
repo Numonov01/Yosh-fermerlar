@@ -1,0 +1,135 @@
+import { Bullet } from '@ant-design/plots'
+import React from 'react'
+import { Card } from 'antd'
+import usecustomStyles from '../../../../Common/customStyles';
+
+const customStyles = usecustomStyles();
+ 
+
+const GroupedBulletChart = () => {
+
+    const datagroupedbullet = [
+        {
+            title: 'chongqing',
+            ranges: [30, 90, 120],
+            measures: [65],
+            target: 10,
+        },
+        {
+            title: 'hangzhou',
+            ranges: [30, 90, 120],
+            measures: [50],
+            target: 100,
+        },
+        {
+            title: 'Guangzhou',
+            ranges: [30, 90, 120],
+            measures: [40],
+            target: 85,
+        },
+        {
+            title: 'Shenzhen',
+            ranges: [30, 90, 120],
+            measures: [50],
+            target: 100,
+        },
+    ];
+    const groupedbullet = {
+        data: datagroupedbullet,
+        measureField: 'measures',
+        rangeField: 'ranges',
+        targetField: 'target',
+        xField: 'title',
+        color: {
+            range: ['#FFbcb8', '#FFe0b0', '#bfeec8'],
+            measure: '#5B8FF9',
+            target: '#39a3f4',
+        },
+        label: {
+            measure: {
+                position: 'middle',
+                style: {
+                    fill: '#fff',
+                },
+            },
+        },
+        xAxis: {
+            line: null,
+        },
+        yAxis: false,
+        legend: {
+            custom: true,
+            position: 'bottom',
+            items: [
+                {
+                    value: 'Difference',
+                    name: 'Difference',
+                    marker: {
+                        symbol: 'square',
+                        style: {
+                            fill: '#FFbcb8',
+                            r: 5,
+                        },
+                    },
+                },
+                {
+                    value: 'good',
+                    name: 'good',
+                    marker: {
+                        symbol: 'square',
+                        style: {
+                            fill: '#FFe0b0',
+                            r: 5,
+                        },
+                    },
+                },
+                {
+                    value: 'excellent',
+                    name: 'excellent',
+                    marker: {
+                        symbol: 'square',
+                        style: {
+                            fill: '#bfeec8',
+                            r: 5,
+                        },
+                    },
+                },
+                {
+                    value: 'actual value',
+                    name: 'actual value',
+                    marker: {
+                        symbol: 'square',
+                        style: {
+                            fill: '#5B8FF9',
+                            r: 5,
+                        },
+                    },
+                },
+                {
+                    value: 'target value',
+                    name: 'target value',
+                    marker: {
+                        symbol: 'line',
+                        style: {
+                            stroke: '#39a3f4',
+                            r: 5,
+                        },
+                    },
+                },
+            ],
+        },
+    };
+
+    return (
+        <React.Fragment>
+            <Card
+                title="Group Bullet Chart"
+                style={{ marginBottom: customStyles.margin }}
+            >
+                <Bullet {...groupedbullet} />
+            </Card>
+        </React.Fragment>
+    )
+}
+
+export default GroupedBulletChart

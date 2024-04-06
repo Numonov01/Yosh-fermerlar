@@ -1,0 +1,127 @@
+@for $i from 10 through 26 {
+    $rem-value: $i / 16; // Convert pixels to REM
+
+    .ant-font-size-#{$i} {
+        font-size: #{$rem-value}rem;
+    }
+}
+
+//font-wights
+@each $name,
+$weight in $font-weights {
+    .ant-font-weight-#{$name} {
+        font-weight: $weight;
+    }
+}
+
+//spacing classes mixing
+@each $name,
+$value in $spacing-values {
+    .ant-p-#{$name} {
+        padding: $value;
+    }
+
+    .ant-px-#{$name} {
+        padding-left: $value;
+        padding-right: $value;
+    }
+
+    .ant-py-#{$name} {
+        padding-top: $value;
+        padding-bottom: $value;
+    }
+
+    .ant-pt-#{$name} {
+        padding-top: $value;
+    }
+
+    .ant-pr-#{$name} {
+        padding-right: $value;
+    }
+
+    .ant-pb-#{$name} {
+        padding-bottom: $value;
+    }
+
+    .ant-pl-#{$name} {
+        padding-left: $value;
+    }
+
+    [dir="rtl"] {
+        .ant-pr-#{$name} {
+            padding-right: 0;
+            padding-left: $value;
+        }
+
+        .ant-pl-#{$name} {
+            padding-right: $value;
+            padding-left: 0;
+        }
+    }
+
+}
+
+@each $name,
+$value in $spacing-values {
+    .ant-m-#{$name} {
+        margin: $value;
+    }
+
+    .ant-mx-#{$name} {
+        margin-left: $value;
+        margin-right: $value;
+    }
+
+    .ant-my-#{$name} {
+        margin-top: $value;
+        margin-bottom: $value;
+    }
+
+    .ant-mt-#{$name} {
+        margin-top: $value;
+    }
+
+    .ant-mr-#{$name} {
+        margin-right: $value;
+    }
+
+    .ant-mb-#{$name} {
+        margin-bottom: $value;
+    }
+
+    .ant-ml-#{$name} {
+        margin-left: $value;
+    }
+
+    [dir="rtl"] {
+        .ant-mr-#{$name} {
+            padding-right: 0;
+            padding-left: $value;
+        }
+
+        .ant-ml-#{$name} {
+            padding-right: $value;
+            padding-left: 0;
+        }
+    }
+}
+
+.text-left {
+    text-align: left;
+
+    &[dir='rtl'] & {
+        text-align: right;
+    }
+}
+
+.text-right {
+    text-align: right;
+
+    &[dir='rtl'] & {
+        text-align: left;
+    }
+}
+
+.text-center {
+    text-align: center;
+}

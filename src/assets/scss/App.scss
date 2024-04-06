@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import 'variables';
+
+
+@import 'mixin/maps';
+@import 'mixin/utilities';
+@import 'mixin/email';
+@import 'custom-simplebar';
+
+// Kanban
+@import 'kanban';
+
+// Custom css
+@import 'custom'
