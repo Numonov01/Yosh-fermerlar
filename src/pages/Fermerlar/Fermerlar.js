@@ -1,26 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Pie } from "@ant-design/plots";
 import { Card } from "antd";
+import axios from "axios";
 
 function Fermerlar() {
+  const [data1, setData1] = useState([]);
+  const [data2, setData2] = useState([]);
+  const [data3, setData3] = useState([]);
   const config1 = {
-    data: [
-      { type: "Toshkent", value: 15.5 },
-      { type: "Qashqadaryo", value: 5.3 },
-      { type: "Sirdaryo", value: 6.7 },
-      { type: "Jizzax", value: 1.5 },
-      { type: "Samarqand", value: 2.9 },
-      { type: "Farg'ona", value: 6.3 },
-      { type: "Namangan", value: 4.6 },
-      { type: "Andijon", value: 6.8 },
-      { type: "Surxondaryo", value: 10.5 },
-      { type: "Buxoro", value: 7.9 },
-      { type: "Navoiy", value: 6.7 },
-      { type: "Xorazm", value: 7.8 },
-      { type: "Qoraqalpog'iston", value: 5 },
-    ],
-    angleField: "value",
-    colorField: "type",
+    data: data1,
+    angleField: "area",
+    colorField: "name",
     paddingRight: 80,
     label: {
       text: "value",
@@ -35,23 +25,9 @@ function Fermerlar() {
     },
   };
   const config2 = {
-    data: [
-      { type: "Toshkent", value: 80.5 },
-      { type: "Qashqadaryo", value: 3.3 },
-      { type: "Sirdaryo", value: 1.7 },
-      { type: "Jizzax", value: 1.5 },
-      { type: "Samarqand", value: 1.9 },
-      { type: "Farg'ona", value: 1.3 },
-      { type: "Namangan", value: 1.6 },
-      { type: "Andijon", value: 0.8 },
-      { type: "Surxondaryo", value: 1.5 },
-      { type: "Buxoro", value: 1.4 },
-      { type: "Navoiy", value: 1.7 },
-      { type: "Xorazm", value: 1.8 },
-      { type: "Qoraqalpog'iston", value: 1 },
-    ],
-    angleField: "value",
-    colorField: "type",
+    data: data2,
+    angleField: "count",
+    colorField: "name",
     paddingRight: 80,
     label: {
       text: "value",
@@ -65,24 +41,45 @@ function Fermerlar() {
       },
     },
   };
+
+  useEffect(() => {
+    axios
+      .get("http://84.54.115.14:8071/api/map/dehqon-pie?language=uz")
+      .then(function (response) {
+        setData1(response);
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://84.54.115.14:8071/api/map/type-of-activity?language=uz", {
+        headers: {
+          authorization: "Bearer 64d0214016586ee4df96bf62197e2c728601a85e",
+        },
+      })
+      .then(function (response) {
+        setData2(response);
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://84.54.115.14:8071/api/map/appeals?language=uz", {
+        headers: {
+          authorization: "Bearer 64d0214016586ee4df96bf62197e2c728601a85e",
+        },
+      })
+      .then(function (response) {
+        setData3(response);
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   const config3 = {
-    data: [
-      { type: "Toshkent", value: 15.5 },
-      { type: "Qashqadaryo", value: 5.3 },
-      { type: "Sirdaryo", value: 6.7 },
-      { type: "Jizzax", value: 1.5 },
-      { type: "Samarqand", value: 2.9 },
-      { type: "Farg'ona", value: 6.3 },
-      { type: "Namangan", value: 4.6 },
-      { type: "Andijon", value: 6.8 },
-      { type: "Surxondaryo", value: 10.5 },
-      { type: "Buxoro", value: 7.9 },
-      { type: "Navoiy", value: 6.7 },
-      { type: "Xorazm", value: 7.8 },
-      { type: "Qoraqalpog'iston", value: 5 },
-    ],
-    angleField: "value",
-    colorField: "type",
+    data: data3,
+    angleField: "count",
+    colorField: "name",
     paddingRight: 80,
     label: {
       text: "value",
@@ -117,17 +114,17 @@ function Fermerlar() {
           <p>Card content</p>
         </Card>
         <Card
-          title={
-            <span style={{ color: "green" }}>
-              Yosh dehqonlarga ajratilgan maydon
-            </span>
-          }
+          title={<span style={{ color: "green" }}>Yosh dehqonlar soni</span>}
           bordered={false}
         >
           <p>Card content</p>
         </Card>
         <Card
-          title={<span style={{ color: "green" }}>Yosh dehqonlar soni</span>}
+          title={
+            <span style={{ color: "green" }}>
+              Yosh dehqonlarga ajratilgan maydon
+            </span>
+          }
           bordered={false}
         >
           <p>Card content</p>
