@@ -4,11 +4,11 @@ import { Card } from "antd";
 import axios from "axios";
 
 function Fermerlar() {
-  const [data1, setData1] = useState([]);
-  const [data2, setData2] = useState([]);
-  const [data3, setData3] = useState([]);
+  const [hudud, setHudud] = useState([]);
+  const [faoliyat, setFaoliyat] = useState([]);
+  const [muammo, setMuammo] = useState([]);
   const config1 = {
-    data: data1,
+    data: hudud,
     angleField: "area",
     colorField: "name",
     paddingRight: 80,
@@ -25,7 +25,24 @@ function Fermerlar() {
     },
   };
   const config2 = {
-    data: data2,
+    data: faoliyat,
+    angleField: "count",
+    colorField: "name",
+    paddingRight: 80,
+    label: {
+      text: "value",
+      position: "outside",
+    },
+    legend: {
+      color: {
+        title: false,
+        position: "right",
+        rowPadding: 5,
+      },
+    },
+  };
+  const config3 = {
+    data: muammo,
     angleField: "count",
     colorField: "name",
     paddingRight: 80,
@@ -46,7 +63,7 @@ function Fermerlar() {
     axios
       .get("http://84.54.115.14:8071/api/map/dehqon-pie?language=uz")
       .then(function (response) {
-        setData1(response);
+        setHudud(response);
         console.log(response);
       })
       .catch((err) => console.log(err));
@@ -58,7 +75,7 @@ function Fermerlar() {
         },
       })
       .then(function (response) {
-        setData2(response);
+        setFaoliyat(response);
         console.log(response);
       })
       .catch((err) => console.log(err));
@@ -70,29 +87,11 @@ function Fermerlar() {
         },
       })
       .then(function (response) {
-        setData3(response);
+        setMuammo(response);
         console.log(response);
       })
       .catch((err) => console.log(err));
   }, []);
-
-  const config3 = {
-    data: data3,
-    angleField: "count",
-    colorField: "name",
-    paddingRight: 80,
-    label: {
-      text: "value",
-      position: "outside",
-    },
-    legend: {
-      color: {
-        title: false,
-        position: "right",
-        rowPadding: 5,
-      },
-    },
-  };
 
   return (
     <>
@@ -101,7 +100,7 @@ function Fermerlar() {
           title={<span style={{ color: "green" }}>Yosh dehqonlar soni</span>}
           bordered={false}
         >
-          <p>Card content</p>
+          <h2>1596</h2>
         </Card>
         <Card
           title={
@@ -111,13 +110,13 @@ function Fermerlar() {
           }
           bordered={false}
         >
-          <p>Card content</p>
+          <h2>212,228 GA</h2>
         </Card>
         <Card
           title={<span style={{ color: "green" }}>Yosh dehqonlar soni</span>}
           bordered={false}
         >
-          <p>Card content</p>
+          <h2>0</h2>
         </Card>
         <Card
           title={
@@ -127,7 +126,7 @@ function Fermerlar() {
           }
           bordered={false}
         >
-          <p>Card content</p>
+          <h2>0</h2>
         </Card>
       </div>
       <div className="wrap">
