@@ -26,13 +26,18 @@ code {
 .statistika h1 {
   font-weight: bold;
 }
+
 .son {
-  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
   margin-top: 20px;
+}
+
+.son .ant-card {
+  flex-basis: calc(20% - 10px, 30% - 10px, 20% - 10px, 20% - 10px, 30% - 10px);
   margin-bottom: 20px;
-  overflow: auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
 }
 .son h2 {
   font-weight: bold;

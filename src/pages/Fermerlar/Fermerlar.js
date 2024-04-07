@@ -98,6 +98,7 @@ function Fermerlar() {
       <div className="son">
         <Card
           title={<span style={{ color: "green" }}>Yosh dehqonlar soni</span>}
+          style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
           bordered={false}
         >
           <h2>1596</h2>
@@ -108,12 +109,14 @@ function Fermerlar() {
               Yosh dehqonlarga ajratilgan maydon
             </span>
           }
+          style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
           bordered={false}
         >
           <h2>212,228 GA</h2>
         </Card>
         <Card
           title={<span style={{ color: "green" }}>Yosh dehqonlar soni</span>}
+          style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
           bordered={false}
         >
           <h2>0</h2>
@@ -124,6 +127,7 @@ function Fermerlar() {
               Yosh dehqonlarga ajratilgan maydon
             </span>
           }
+          style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
           bordered={false}
         >
           <h2>0</h2>
