@@ -71,7 +71,7 @@ function Fermerlar() {
     axios
       .get("http://84.54.115.14:8071/api/map/type-of-activity?language=uz", {
         headers: {
-          authorization: "Bearer 64d0214016586ee4df96bf62197e2c728601a85e",
+          authorization: "Bearer 6510cbdbb8758f2fc3b32b1cc12f7f353d08cbf8",
         },
       })
       .then(function (response) {
@@ -83,7 +83,7 @@ function Fermerlar() {
     axios
       .get("http://84.54.115.14:8071/api/map/appeals?language=uz", {
         headers: {
-          authorization: "Bearer 64d0214016586ee4df96bf62197e2c728601a85e",
+          authorization: "Bearer 6510cbdbb8758f2fc3b32b1cc12f7f353d08cbf8",
         },
       })
       .then(function (response) {
@@ -131,6 +131,13 @@ function Fermerlar() {
           bordered={false}
         >
           <h2>0</h2>
+        </Card>
+        <Card
+          title={<span style={{ color: "green" }}>Yosh dehqonlar soni</span>}
+          style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
+          bordered={false}
+        >
+          <h2>15</h2>
         </Card>
       </div>
       <div className="wrap">
